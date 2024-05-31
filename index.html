@@ -17,8 +17,8 @@
         }
       </script>
     <style type="text/tailwindcss">
-        *{
-           
+        #toggle:checked ~ label div.toggle-circle{
+          @apply translate-x-3
         }
     </style>
 </head>
@@ -59,6 +59,19 @@
 
     <button class="my-10 bg-sky-500 px-5 py-2 rounded-full text-white font-semibold block mx-auto hover:bg-sky-600 active:bg-sky-700 focus:ring focus:ring-sky-300">simpan</button>
 
+    <div class="flex justify-center">
+      <span class="text-sm text-slate-500 mr-2">light</span>
+      <input type="checkbox" id="toggle" class="hidden">
+      <label for="toggle">
+        <div class="w-9 h-5 bg-slate-500 rounded-full flex items-center p-1 cursor-pointer">
+          <div class="w-4 h-4 bg-white rounded-full toggle-circle">
+
+          </div>
+        </div>
+      </label>
+      <span class="text-sm text-slate-500 ml-2">dark</span>
+    </div>
+
     <div class="max-w-lg my-10 border border-slate-200 rounded-xl mx-auto p-5 shadow-md hover:bg-sky-500">
       <h5 class="font-bold text-slate-700 text-lg mb-3">my card</h5>
       <p class="text-slate-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum necessitatibus iusto itaque ab. Suscipit dolores molestias quibusdam sapiente odit cum tempore exercitationem facilis nihil labore, itaque perspiciatis ex laborum impedit officia ut laudantium neque dolorem porro ad ipsa asperiores nam earum eos! Odit iste optio placeat repellat quibusdam nihil doloremque?</p>
@@ -66,5 +79,14 @@
     <div class="mb-96">
 
     </div>
+
+    <script>
+      const checkbox = document.querySelector('#toggle');
+      const html = document.querySelector('html');
+
+      checkbox.addEventListener('clik', function(){
+        checkbox.checked ? html.classList.add('dark') : html.classList.remove('dark');
+      });
+    </script>
 </body>
 </html>
